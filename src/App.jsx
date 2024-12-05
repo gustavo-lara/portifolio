@@ -136,26 +136,26 @@ const App = () => {
       < main className="pt-20">
         {/* Hero Section */}
         <section
-  id="home"
-  className="relative min-h-screen flex items-center bg-animated border-b border-[#15F5BA]/10 overflow-hidden"
->
-  {/* Animações e conteúdo */}
-  <motion.div
-    className="container mx-auto px-6 relative z-10"
-    initial={{ opacity: 0, y: -50 }}
-    animate={{ opacity: 1, y: 0 }}
-    transition={{ duration: 1 }}
-  >
-    <h1 className="text-6xl md:text-9xl text-[#15F5BA] mb-6 font-vt323">
-      <span>{firstLineText}</span>
-      <br />
-      <span>{secondLineText}</span>
-    </h1>
-    <p className="text-xl text-[#F0F3FF]/60 max-w-xl">
-      Criando experiências digitais únicas e memoráveis através de código limpo e design intuitivo.
-    </p>
-  </motion.div>
-</section>
+          id="home"
+          className="relative min-h-screen flex items-center bg-animated border-b border-[#15F5BA]/10 overflow-hidden"
+        >
+          {/* Animações e conteúdo */}
+          <motion.div
+            className="container mx-auto px-6 relative z-10"
+            initial={{ opacity: 0, y: -50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1 }}
+          >
+            <h1 className="text-6xl md:text-9xl text-[#15F5BA] mb-6 font-vt323">
+              <span>{firstLineText}</span>
+              <br />
+              <span>{secondLineText}</span>
+            </h1>
+            <p className="text-xl text-[#F0F3FF]/60 max-w-xl">
+              Criando experiências digitais únicas e memoráveis através de código limpo e design intuitivo.
+            </p>
+          </motion.div>
+        </section>
 
 
 
@@ -405,7 +405,10 @@ const App = () => {
 
         {/* Contato */}
 
-        <section id="contato" className="py-24">
+        <section
+          id="contato"
+          className="py-24 relative"
+        >
           <div className="container mx-auto px-6">
             <div className="max-w-2xl mx-auto text-center">
               <motion.h2
@@ -465,6 +468,7 @@ const App = () => {
             </div>
           </div>
         </section>
+
 
       </main >
     </div >

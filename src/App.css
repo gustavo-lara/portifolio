@@ -52,6 +52,8 @@
 }
 
 /* Sombras e contornos */
-.bg-animated h1 {
+.bg-animated h1,
+h2,
+h3 {
   text-shadow: 0 0 10px rgba(21, 245, 186, 0.7), 0 0 20px rgba(21, 245, 186, 0.5);
 }
