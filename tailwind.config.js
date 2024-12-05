@@ -6,6 +6,9 @@ export default {
   ],
   theme: {
     extend: {
+      fontFamily: {
+        vt323: ['VT323', 'monospace'],
+      },
       animation: {
         'glitch': 'glitch 1s infinite',
         'matrix-rain': 'matrix-rain 2s linear infinite',
@@ -24,4 +27,4 @@ export default {
     },
   },
   plugins: [],
-}
+};

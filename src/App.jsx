@@ -1,11 +1,10 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 
-import devflix from "./img/devflix.png"
-import mercedes from "./img/mercedes-dev.png"
-
+import devflix from "./img/devflix.png";
+import mercedes from "./img/mercedes-dev.png";
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -34,31 +33,47 @@ const App = () => {
     setIsMenuOpen(false);
   };
 
+  const [firstLineText, setFirstLineText] = useState("");  // Texto para "Desenvolvedor"
+  const [secondLineText, setSecondLineText] = useState("");  // Texto para "Full Stack"
+  const firstLine = "Deesenvolvedor";
+  const secondLine = "Fuull Stack.";
+  const firstLineIndexRef = useRef(0); // Para controlar o índice da primeira linha
+  const secondLineIndexRef = useRef(0); // Para controlar o índice da segunda linha
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (firstLineIndexRef.current < firstLine.length) {
+        setFirstLineText(prevText => prevText + firstLine.charAt(firstLineIndexRef.current));
+        firstLineIndexRef.current++;
+      } else if (secondLineIndexRef.current < secondLine.length) {
+        setSecondLineText(prevText => prevText + secondLine.charAt(secondLineIndexRef.current));
+        secondLineIndexRef.current++;
+      } else {
+        clearInterval(interval); // Para o intervalo quando os dois textos forem exibidos
+      }
+    }, 150); // Ajuste a velocidade da digitação
+
+    return () => clearInterval(interval); // Limpa o intervalo quando o componente for desmontado
+  }, []);
+
+
 
   return (
-    <div className="bg-white min-h-screen">
+    <div className="bg-[#1e1939] min-h-screen">
+
       {/* Header Fixo */}
 
-
-      <header className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 border-b border-[#3C2A21]/10">
+      <header className="fixed top-0 left-0 right-0 bg-[#1e1939]/90 backdrop-blur-sm z-50 border-b border-[#15F5BA]/10">
         <motion.div
           className="container mx-auto px-6 py-4 flex justify-between items-center"
           initial={{ y: -100, opacity: 0 }}
           animate={{ y: 0, opacity: 1 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
         >
-          <h1 className="text-[#3C2A21] text-xl font-bold">Gustavo Lara</h1>
-
-          {/* Menu Mobile */}
-          <button
-            onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2"
-          >
-            {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <h1 className="text-[#15F5BA] text-2xl font-vt323 tracking-widest">Gustavo Lara</h1>
 
           {/* Menu Desktop */}
-          <nav className="hidden md:flex gap-8">
+          <nav className="hidden md:flex gap-8 font-vt323">
             {['home', 'sobre', 'tecnologias', 'projetos', 'contato'].map((item) => (
               <Link
                 key={item}
@@ -67,8 +82,8 @@ const App = () => {
                 duration={500}
                 offset={-100}
                 className={`capitalize cursor-pointer ${activeSection === item
-                  ? 'text-[#3C2A21]'
-                  : 'text-[#3C2A21]/60 hover:text-[#3C2A21]'
+                  ? 'text-[#15F5BA]'
+                  : 'text-[#15F5BA]/60 hover:text-[#15F5BA]'
                   } transition-colors`}
               >
                 {item}
@@ -80,12 +95,12 @@ const App = () => {
         {/* Menu Mobile Expandido */}
         {isMenuOpen && (
           <motion.div
-            className="md:hidden absolute top-full left-0 right-0 bg-white border-b border-[#3C2A21]/10"
+            className="md:hidden absolute top-full left-0 right-0 bg-white font-vt323 border-b border-[#15F5BA]/10"
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <nav className="container mx-auto px-6 py-4 flex flex-col gap-4">
+            <nav className="container mx-auto px-6 py-4 flex flex-col gap-4 font-vt323">
               {['home', 'sobre', 'tecnologias', 'projetos', 'contato'].map((item) => (
                 <Link
                   key={item}
@@ -95,8 +110,8 @@ const App = () => {
                   offset={-100}
                   onClick={() => setIsMenuOpen(false)}
                   className={`capitalize text-left ${activeSection === item
-                    ? 'text-[#3C2A21]'
-                    : 'text-[#3C2A21]/60'
+                    ? 'text-[#15F5BA]'
+                    : 'text-[#15F5BA]/60'
                     }`}
                 >
                   {item}
@@ -110,19 +125,20 @@ const App = () => {
 
 
       {/* Conteúdo Principal */}
-      < main className="pt-20" >
+      < main className="pt-20 bg-[#1e1939]" >
         {/* Hero Section */}
-        <section id="home" className="min-h-screen flex items-center border-b border-[#3C2A21]/10">
+        <section id="home" className="min-h-screen flex items-center border-b border-[#15F5BA]/10">
           <motion.div
             className="container mx-auto px-6"
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1 }}
           >
-            <h1 className="text-6xl md:text-8xl font-bold text-[#3C2A21] mb-6">
-              Desenvolvedor<br />Full Stack
+            <h1 className="text-6xl md:text-9xl text-[#15F5BA] mb-6 font-vt323">
+              <span>{firstLineText}</span><br />
+              <span>{secondLineText}</span>
             </h1>
-            <p className="text-xl text-[#3C2A21]/60 max-w-xl">
+            <p className="text-xl text-[#F0F3FF]/60 max-w-xl">
               Criando experiências digitais únicas e memoráveis através de código limpo e design intuitivo.
             </p>
           </motion.div>
@@ -130,7 +146,7 @@ const App = () => {
 
 
         {/* Sobre */}
-        <section id="sobre" className="py-24 border-b border-[#3C2A21]/10">
+        <section id="sobre" className="py-24 border-b border-[#15F5BA]/10">
           <motion.div
             className="container mx-auto px-6"
             initial={{ opacity: 0, y: 50 }}
@@ -140,15 +156,15 @@ const App = () => {
           >
             <div className="grid md:grid-cols-2 gap-12">
               <div>
-                <h2 className="text-4xl font-bold text-[#3C2A21] mb-6">Sobre Mim</h2>
-                <p className="text-lg text-[#3C2A21]/80 leading-relaxed">
+                <h2 className="text-4xl font-bold text-[#15F5BA] mb-6 font-vt323">Sobre Mim</h2>
+                <p className="text-lg text-[#F0F3FF]/80 leading-relaxed">
                   Olá, sou Gustavo Lara, um entusiasta da tecnologia e estudante dedicado, apaixonado por desenvolvimento e inovação. Meu objetivo é aprimorar minhas habilidades e expandir meu conhecimento diariamente para criar soluções que façam a diferença.
                   Como desenvolvedor júnior, tenho experiência prática com JavaScript, React, SQL Server, .NET e C#. Estou focado em desenvolver aplicações eficientes, explorar novas tecnologias e contribuir para projetos que impactem positivamente o mundo da tecnologia.
                   Estou sempre em busca de novos desafios, aprendizado contínuo e oportunidades de colaborar com profissionais inspiradores. Vamos juntos construir soluções inovadoras e transformar ideias em realidade! 🚀
                 </p>
               </div>
-              <div className="bg-[#D5CEA3]/20 rounded-lg p-8">
-                <h3 className="text-2xl font-bold text-[#3C2A21] mb-4">Certificações</h3>
+              <div className="bg-[#3825a4]/10 rounded-lg p-8">
+                <h3 className="text-2xl font-bold text-[#15F5BA] mb-4 font-vt323">Certificados</h3>
                 <div className="space-y-4">
                   {[
                     {
@@ -174,10 +190,10 @@ const App = () => {
                   ].map((cert) => (
                     <div key={cert.title} className="flex justify-between items-start">
                       <div>
-                        <h4 className="font-medium text-[#3C2A21]">{cert.title}</h4>
-                        <p className="text-sm text-[#3C2A21]/60">{cert.org}</p>
+                        <h2 className="text-4xl md:text-6xl lg:text-3xl text-[#15F5BA] font-vt323">{cert.title}</h2>
+                        <p className="text-sm text-[#15F5BA]/60">{cert.org}</p>
                       </div>
-                      <span className="text-sm text-[#3C2A21]/60">{cert.year}</span>
+                      <span className="text-sm text-[#15F5BA]/60 font-vt323">{cert.year}</span>
                     </div>
                   ))}
                 </div>
@@ -188,10 +204,10 @@ const App = () => {
 
         {/* Tecnologias */}
 
-        <section id="tecnologias" className="py-24 border-b border-[#3C2A21]/10">
+        <section id="tecnologias" className="py-24 border-b border-[#15F5BA]/10">
           <div className="container mx-auto px-6">
             <motion.h2
-              className="text-4xl font-bold text-[#3C2A21] mb-12"
+              className="text-4xl font-bold text-[#15F5BA] mb-12 font-vt323"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -199,7 +215,7 @@ const App = () => {
             >
               Stack Tecnológico
             </motion.h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 font-vt323">
               {[
                 { name: "HTML" },
                 { name: "CSS" },
@@ -218,7 +234,7 @@ const App = () => {
               ].map((tech, index) => (
                 <motion.div
                   key={tech.name}
-                  className="p-6 bg-[#D5CEA3]/10 rounded-lg hover:bg-[#D5CEA3]/20 
+                  className="p-6 bg-[#3825a4]/10 rounded-lg hover:bg-[#3153cb]/20 
             transition-colors group cursor-pointer"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
@@ -226,7 +242,7 @@ const App = () => {
                   viewport={{ once: true }}
                 >
                   <div className="flex items-center justify-center space-x-4">
-                    <p className="text-lg font-medium text-[#3C2A21] group-hover:translate-x-2 transition-transform">
+                    <p className="text-lg font-medium text-[#15F5BA] group-hover:translate-x-2 transition-transform">
                       {tech.name}
                     </p>
                   </div>
@@ -241,10 +257,10 @@ const App = () => {
 
         {/* Projetos */}
 
-        <section id="projetos" className="py-24 border-b border-[#3C2A21]/10">
+        <section id="projetos" className="py-24 border-b border-[#15F5BA]/10">
           <div className="container mx-auto px-6">
             <motion.h2
-              className="text-4xl font-bold text-[#3C2A21] mb-12"
+              className="text-4xl font-bold text-[#15F5BA] mb-12 font-vt323"
               initial={{ opacity: 0, y: -20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8 }}
@@ -283,7 +299,7 @@ const App = () => {
                     rel="noopener noreferrer"
                     className="block"
                   >
-                    <div className="aspect-video bg-[#D5CEA3]/10 rounded-lg mb-4 overflow-hidden">
+                    <div className="aspect-video bg-[#F0F3FF]/10 rounded-lg mb-4 overflow-hidden">
                       <motion.img
                         src={project.image}
                         alt={project.title}
@@ -293,7 +309,7 @@ const App = () => {
                         transition={{ duration: 0.3 }}
                       />
                     </div>
-                    <h3 className="text-xl font-medium text-[#3C2A21] mb-2 flex items-center gap-2">
+                    <h3 className="text-xl font-medium text-[#15F5BA] mb-2 flex items-center gap-2 font-vt323">
                       {project.title}
                       <ArrowUpRight
                         size={20}
@@ -301,12 +317,12 @@ const App = () => {
                       />
                     </h3>
                   </a>
-                  <p className="text-[#3C2A21]/60 mb-4">{project.desc}</p>
-                  <div className="flex gap-2">
+                  <p className="text-[#F0F3FF]/60 mb-4">{project.desc}</p>
+                  <div className="flex gap-2 font-vt323">
                     {project.tech.map((t) => (
                       <span
                         key={t}
-                        className="px-3 py-1 text-sm bg-[#D5CEA3]/20 rounded-full text-[#3C2A21]"
+                        className="px-3 py-1 text-sm bg-[#F0F3FF]/20 rounded-full text-[#15F5BA]"
                       >
                         {t}
                       </span>
@@ -327,7 +343,7 @@ const App = () => {
           <div className="container mx-auto px-6">
             <div className="max-w-2xl mx-auto text-center">
               <motion.h2
-                className="text-4xl font-bold text-[#3C2A21] mb-6"
+                className="text-4xl font-bold text-[#15F5BA] mb-6 font-vt323"
                 initial={{ opacity: 0, y: -20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8 }}
@@ -336,7 +352,7 @@ const App = () => {
                 Vamos Conversar?
               </motion.h2>
               <motion.p
-                className="text-lg text-[#3C2A21]/60 mb-8"
+                className="text-lg text-[#F0F3FF]/60 mb-8"
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
@@ -355,7 +371,7 @@ const App = () => {
                   href="https://github.com/gustavo-lara"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 text-[#3C2A21]/60 hover:text-[#3C2A21] transition-colors"
+                  className="p-3 text-[#15F5BA]/60 hover:text-[#15F5BA] transition-colors"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -365,7 +381,7 @@ const App = () => {
                   href="https://www.linkedin.com/in/gustavo-lara-2950a32b3/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-3 text-[#3C2A21]/60 hover:text-[#3C2A21] transition-colors"
+                  className="p-3 text-[#15F5BA]/60 hover:text-[#15F5BA] transition-colors"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
                 >
@@ -373,7 +389,7 @@ const App = () => {
                 </motion.a>
                 <motion.a
                   href="mailto:gustavolara63719@gmail.com"
-                  className="p-3 text-[#3C2A21]/60 hover:text-[#3C2A21] transition-colors"
+                  className="p-3 text-[#15F5BA]/60 hover:text-[#15F5BA] transition-colors"
                   whileHover={{ scale: 1.1 }}
                   transition={{ duration: 0.3 }}
                 >
