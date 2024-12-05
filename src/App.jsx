@@ -198,19 +198,19 @@ const App = () => {
             </motion.h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
               {[
-                { name: "HTML"},
-                { name: "CSS"},
-                { name: "JavaScript"},
-                { name: "C#"},
-                { name: "React Vite"},
-                { name: "Tailwind"},
-                { name: "Bootstrap"},
-                { name: ".NET"},
-                { name: "SQL Server"},
-                { name: "Git"},
-                { name: "GitHub"},
-                { name: "Vercel"},
-                { name: "Figma"},
+                { name: "HTML" },
+                { name: "CSS" },
+                { name: "JavaScript" },
+                { name: "C#" },
+                { name: "React Vite" },
+                { name: "Tailwind" },
+                { name: "Bootstrap" },
+                { name: ".NET" },
+                { name: "SQL Server" },
+                { name: "Git" },
+                { name: "GitHub" },
+                { name: "Vercel" },
+                { name: "Figma" },
                 { name: "Canva" },
               ].map((tech, index) => (
                 <motion.div
@@ -256,14 +256,14 @@ const App = () => {
                   desc: "Pequeno projeto com o objetivo de ampliar meu portfólio. O projeto é baseado no site mercedes.com.",
                   tech: ["React"],
                   url: "https://mercedes-dev.vercel.app/",
-                  image: "src/assets/mercedes-dev.png"
+                  image: "public/mercedes-dev.png"
                 },
                 {
                   title: "DevFlix",
                   desc: "Este site é um exemplo de plataforma de streaming. Um dos meus projetos educacionais.",
                   tech: ["React", "API"],
                   url: "https://devflix-chi-opal.vercel.app/",
-                  image: "src/assets/devflix.png"
+                  image: "public/devflix.png"
                 }
               ].map((project, index) => (
                 <motion.div
