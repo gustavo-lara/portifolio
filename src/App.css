@@ -1,42 +1,57 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+/* Fundo animado com gradiente e partículas */
+.bg-animated {
+  position: relative;
+  background: linear-gradient(270deg, #1e1939, #043528, #1e1939);
+  background-size: 400% 400%;
+  animation: gradient 4s ease infinite;
+  overflow: hidden;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+/* Textura de partículas */
+.bg-animated::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.1;
+  pointer-events: none;
+  /* Para não interferir com cliques */
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+/* Camada de luz flutuante */
+.bg-animated::after {
+  content: "";
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(21, 245, 186, 0.4), transparent 70%);
+  animation: light-move 6s ease-in-out infinite;
+  pointer-events: none;
+  opacity: 0.3;
+}
+
+/* Animação do movimento da luz */
+@keyframes light-move {
+  0% {
+    transform: translate(0, 0) scale(1);
   }
-  to {
-    transform: rotate(360deg);
+
+  50% {
+    transform: translate(50%, 50%) scale(1.2);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
   }
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+/* Sombras e contornos */
+.bg-animated h1 {
+  text-shadow: 0 0 10px rgba(21, 245, 186, 0.7), 0 0 20px rgba(21, 245, 186, 0.5);
 }

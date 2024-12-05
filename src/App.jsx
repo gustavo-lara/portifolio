@@ -2,6 +2,11 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
+import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaBootstrap, FaGithub } from "react-icons/fa";
+import { SiDotnet, SiMysql, SiVite, SiFigma, SiCanva, SiVercel } from "react-icons/si";
+import { FaDatabase } from "react-icons/fa";
+import { FaCode } from "react-icons/fa";
+import "./App.css"
 
 import devflix from "./img/devflix.png";
 import mercedes from "./img/mercedes-dev.png";
@@ -130,22 +135,28 @@ const App = () => {
       {/* Conteúdo Principal */}
       < main className="pt-20">
         {/* Hero Section */}
-        <section id="home" className="min-h-screen flex items-center border-b border-[#15F5BA]/10">
-          <motion.div
-            className="container mx-auto px-6"
-            initial={{ opacity: 0, y: -50 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 1 }}
-          >
-            <h1 className="text-6xl md:text-9xl text-[#15F5BA] mb-6 font-vt323">
-              <span>{firstLineText}</span><br />
-              <span>{secondLineText}</span>
-            </h1>
-            <p className="text-xl text-[#F0F3FF]/60 max-w-xl">
-              Criando experiências digitais únicas e memoráveis através de código limpo e design intuitivo.
-            </p>
-          </motion.div>
-        </section>
+        <section
+  id="home"
+  className="relative min-h-screen flex items-center bg-animated border-b border-[#15F5BA]/10 overflow-hidden"
+>
+  {/* Animações e conteúdo */}
+  <motion.div
+    className="container mx-auto px-6 relative z-10"
+    initial={{ opacity: 0, y: -50 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 1 }}
+  >
+    <h1 className="text-6xl md:text-9xl text-[#15F5BA] mb-6 font-vt323">
+      <span>{firstLineText}</span>
+      <br />
+      <span>{secondLineText}</span>
+    </h1>
+    <p className="text-xl text-[#F0F3FF]/60 max-w-xl">
+      Criando experiências digitais únicas e memoráveis através de código limpo e design intuitivo.
+    </p>
+  </motion.div>
+</section>
+
 
 
         {/* Sobre */}
@@ -206,7 +217,6 @@ const App = () => {
         </section>
 
         {/* Tecnologias */}
-
         <section id="tecnologias" className="py-24 border-b border-[#15F5BA]/10">
           <div className="container mx-auto px-6">
             <motion.h2
@@ -216,35 +226,30 @@ const App = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              Stack Tecnológico
+              Tecnologias
             </motion.h2>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 font-vt323">
               {[
-                { name: "HTML" },
-                { name: "CSS" },
-                { name: "JavaScript" },
-                { name: "C#" },
-                { name: "React Vite" },
-                { name: "Tailwind" },
-                { name: "Bootstrap" },
-                { name: ".NET" },
-                { name: "SQL Server" },
-                { name: "Git" },
-                { name: "GitHub" },
-                { name: "Vercel" },
-                { name: "Figma" },
-                { name: "Canva" },
+                { name: "HTML", icon: <FaHtml5 /> },
+                { name: "CSS", icon: <FaCss3Alt /> },
+                { name: "JavaScript", icon: <FaJs /> },
+                { name: "C#", icon: <FaCode /> },
+                { name: "React Vite", icon: <SiVite /> },
+                { name: "Bootstrap", icon: <FaBootstrap /> },
+                { name: ".NET", icon: <SiDotnet /> },
+                { name: "SQL Server", icon: <FaDatabase /> },
               ].map((tech, index) => (
                 <motion.div
                   key={tech.name}
                   className="p-6 bg-[#3825a4]/10 rounded-lg hover:bg-[#3153cb]/20 
-            transition-colors group cursor-pointer"
+          transition-colors group cursor-pointer"
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: index * 0.1 }}
                   viewport={{ once: true }}
                 >
                   <div className="flex items-center justify-center space-x-4">
+                    <div className="text-[#15F5BA] text-2xl">{tech.icon}</div>
                     <p className="text-lg font-medium text-[#15F5BA] group-hover:translate-x-2 transition-transform">
                       {tech.name}
                     </p>
@@ -255,8 +260,45 @@ const App = () => {
           </div>
         </section>
 
-
-
+        {/* Ferramentas */}
+        <section id="ferramentas" className="py-24 border-b border-[#15F5BA]/10">
+          <div className="container mx-auto px-6">
+            <motion.h2
+              className="text-4xl font-bold text-[#15F5BA] mb-12 font-vt323"
+              initial={{ opacity: 0, y: -20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8 }}
+              viewport={{ once: true }}
+            >
+              Ferramentas
+            </motion.h2>
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-6 font-vt323">
+              {[
+                { name: "GitHub", icon: <FaGithub /> },
+                { name: "Vercel", icon: <SiVercel /> },
+                { name: "Figma", icon: <SiFigma /> },
+                { name: "Canva", icon: <SiCanva /> },
+              ].map((tool, index) => (
+                <motion.div
+                  key={tool.name}
+                  className="p-6 bg-[#3825a4]/10 rounded-lg hover:bg-[#3153cb]/20 
+          transition-colors group cursor-pointer"
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  viewport={{ once: true }}
+                >
+                  <div className="flex items-center justify-center space-x-4">
+                    <div className="text-[#15F5BA] text-2xl">{tool.icon}</div>
+                    <p className="text-lg font-medium text-[#15F5BA] group-hover:translate-x-2 transition-transform">
+                      {tool.name}
+                    </p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </section>
 
         {/* Projetos */}
 
@@ -269,14 +311,14 @@ const App = () => {
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
-              Projetos Selecionados
+              Projetos
             </motion.h2>
             <div className="grid md:grid-cols-2 gap-8">
               {[
                 {
                   title: "Mercedes-dev",
                   desc: "Pequeno projeto com o objetivo de ampliar meu portfólio. O projeto é baseado no site mercedes.com.",
-                  tech: ["React", "JavaScript"],
+                  tech: ["React", "JavaScript", "Bootstrap"],
                   url: "https://mercedes-dev.vercel.app/",
                   image: mercedes
                 },
