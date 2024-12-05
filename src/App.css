@@ -57,3 +57,46 @@ h2,
 h3 {
   text-shadow: 0 0 10px rgba(21, 245, 186, 0.7), 0 0 20px rgba(21, 245, 186, 0.5);
 }
+
+/* Customização da Barra de Rolagem */
+::-webkit-scrollbar {
+  width: 12px;
+  /* Largura da barra de rolagem */
+  height: 12px;
+  /* Altura da barra de rolagem horizontal */
+}
+
+/* Customização da parte da barra de rolagem que é arrastada (thumb) */
+::-webkit-scrollbar-thumb {
+  background-color: #15F5BA;
+  /* Cor de fundo da barra de rolagem */
+  border-radius: 10px;
+  /* Bordas arredondadas para o thumb */
+  border: 3px solid #1e1939;
+  /* Borda ao redor da barra de rolagem */
+  transition: background-color 0.3s ease;
+  /* Animação de transição */
+}
+
+/* Mudança de cor do thumb quando o usuário está interagindo */
+::-webkit-scrollbar-thumb:hover {
+  background-color: #2bcfa1;
+  /* Cor de fundo quando o thumb é hover */
+}
+
+/* Customização da trilha da barra de rolagem (track) */
+::-webkit-scrollbar-track {
+  background-color: #1e1939;
+  /* Cor de fundo da trilha da barra */
+}
+
+/* Barra de rolagem horizontal */
+::-webkit-scrollbar-horizontal {
+  height: 10px;
+  /* Altura da barra de rolagem horizontal */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #2bcfa1;
+  /* Cor de fundo quando o thumb é hover */
+}
