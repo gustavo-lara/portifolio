@@ -50,14 +50,19 @@ const App = () => {
 
   useEffect(() => {
     const interval = setInterval(() => {
+      // Atualiza a primeira linha se ainda não tiver terminado
       if (firstLineIndexRef.current < firstLine.length) {
         setFirstLineText(prevText => prevText + firstLine.charAt(firstLineIndexRef.current));
         firstLineIndexRef.current++;
-      } else if (secondLineIndexRef.current < secondLine.length) {
+      }
+      // Atualiza a segunda linha quando a primeira terminar
+      else if (secondLineIndexRef.current < secondLine.length) {
         setSecondLineText(prevText => prevText + secondLine.charAt(secondLineIndexRef.current));
         secondLineIndexRef.current++;
-      } else {
-        clearInterval(interval); // Para o intervalo quando os dois textos forem exibidos
+      }
+      // Para o intervalo quando as duas linhas terminarem
+      else {
+        clearInterval(interval);
       }
     }, 150); // Ajuste a velocidade da digitação
 
@@ -82,7 +87,7 @@ const App = () => {
 
           {/* Menu Desktop */}
           <nav className="hidden md:flex gap-8 font-vt323">
-            {['home', 'sobre', 'tecnologias', 'projetos', 'contato'].map((item) => (
+            {['home', 'sobre', 'tecnologias', 'ferramentas', 'projetos', 'contato'].map((item) => (
               <Link
                 key={item}
                 to={item}
@@ -178,7 +183,7 @@ const App = () => {
                 </p>
               </div>
               <div className="bg-[#3825a4]/10 rounded-lg p-8">
-                <h3 className="text-2xl font-bold text-[#15F5BA] mb-4 font-vt323">Certificados</h3>
+                <h2 className="text-3xl font-bold text-[#15F5BA] mb-4 font-vt323">Certificados</h2>
                 <div className="space-y-4">
                   {[
                     {
@@ -204,7 +209,7 @@ const App = () => {
                   ].map((cert) => (
                     <div key={cert.title} className="flex justify-between items-start">
                       <div>
-                        <h2 className="text-4xl md:text-6xl lg:text-3xl text-[#15F5BA] font-vt323">{cert.title}</h2>
+                        <h3 className="text-4xl md:text-6xl lg:text-2xl text-[#15F5BA] font-vt323">{cert.title}</h3>
                         <p className="text-sm text-[#15F5BA]/60">{cert.org}</p>
                       </div>
                       <span className="text-sm text-[#15F5BA]/60 font-vt323">{cert.year}</span>
@@ -236,7 +241,15 @@ const App = () => {
                 { name: "C#", icon: <FaCode /> },
                 { name: "React Vite", icon: <SiVite /> },
                 { name: "Bootstrap", icon: <FaBootstrap /> },
-                { name: ".NET", icon: <SiDotnet /> },
+                {
+                  name: ".NET",
+                  icon: (
+                    <div className="bg-[#15F5BA] text-[#1e1939] text-sm py-1 px-1">
+                      .NET
+                    </div>
+
+                  )
+                },
                 { name: "SQL Server", icon: <FaDatabase /> },
               ].map((tech, index) => (
                 <motion.div
