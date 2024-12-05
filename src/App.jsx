@@ -6,6 +6,8 @@ import { motion } from 'framer-motion';
 import devflix from "./img/devflix.png";
 import mercedes from "./img/mercedes-dev.png";
 import devlist from "./img/devlist.png"
+import devsteam from "./img/devsteam.png"
+import reactlinks from "./img/reactlinks.png"
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -288,9 +290,23 @@ const App = () => {
                 {
                   title: "DevList",
                   desc: "Este site é um exemplo de lista de tarefas. Um dos meus projetos educacionais.",
-                  tech: ["React", "JavaScript", "API"],
+                  tech: ["React", "JavaScript"],
                   url: "https://devlist-xi.vercel.app/",
                   image: devlist
+                },
+                {
+                  title: "DevSteam",
+                  desc: "Este site foi feito baseado na Steam. Um dos meus projetos educacionais.",
+                  tech: ["React", "JavaScript"],
+                  url: "https://dev-steam-v2.vercel.app/",
+                  image: devsteam
+                },
+                {
+                  title: "ReactLinks",
+                  desc: "Este site foi feito baseado no Linktree. Um dos meus projetos educacionais.",
+                  tech: ["React", "JavaScript"],
+                  url: "https://dev-links-react.vercel.app/",
+                  image: reactlinks
                 }
               ].map((project, index) => (
                 <motion.div
