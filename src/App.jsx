@@ -3,6 +3,9 @@ import { Menu, X, ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 
+import devflix from "./img/devflix.png"
+import mercedes from "./img/mercedes-dev.png"
+
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -256,14 +259,14 @@ const App = () => {
                   desc: "Pequeno projeto com o objetivo de ampliar meu portfólio. O projeto é baseado no site mercedes.com.",
                   tech: ["React"],
                   url: "https://mercedes-dev.vercel.app/",
-                  image: "public/mercedes-dev.png"
+                  image: mercedes
                 },
                 {
                   title: "DevFlix",
                   desc: "Este site é um exemplo de plataforma de streaming. Um dos meus projetos educacionais.",
                   tech: ["React", "API"],
                   url: "https://devflix-chi-opal.vercel.app/",
-                  image: "public/devflix.png"
+                  image: devflix
                 }
               ].map((project, index) => (
                 <motion.div
