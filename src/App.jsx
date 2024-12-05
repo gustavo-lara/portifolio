@@ -3,7 +3,7 @@ import { Menu, X, ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
 import { Link } from 'react-scroll';
 import { motion } from 'framer-motion';
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaBootstrap, FaGithub } from "react-icons/fa";
-import { SiDotnet, SiMysql, SiVite, SiFigma, SiCanva, SiVercel } from "react-icons/si";
+import { SiTailwindcss, SiVite, SiFigma, SiCanva, SiVercel } from "react-icons/si";
 import { FaDatabase } from "react-icons/fa";
 import { FaCode } from "react-icons/fa";
 import "./App.css"
@@ -13,6 +13,7 @@ import mercedes from "./img/mercedes-dev.png";
 import devlist from "./img/devlist.png"
 import devsteam from "./img/devsteam.png"
 import reactlinks from "./img/reactlinks.png"
+import gustavo from "./img/gustavo.png"
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -241,6 +242,7 @@ const App = () => {
                 { name: "C#", icon: <FaCode /> },
                 { name: "React Vite", icon: <SiVite /> },
                 { name: "Bootstrap", icon: <FaBootstrap /> },
+                { name: "Tailwind CSS", icon: <SiTailwindcss /> },
                 {
                   name: ".NET",
                   icon: (
@@ -328,6 +330,13 @@ const App = () => {
             </motion.h2>
             <div className="grid md:grid-cols-2 gap-8">
               {[
+                {
+                  title: "Meu portifólio",
+                  desc: "Este site, onde compartilho meus projetos e experiências no desenvolvimento de soluções digitais.",
+                  tech: ["React", "JavaScript", "Tailwind CSS"],
+                  url: "https://gustavo-lara.vercel.app/",
+                  image: gustavo
+                },
                 {
                   title: "Mercedes-dev",
                   desc: "Pequeno projeto com o objetivo de ampliar meu portfólio. O projeto é baseado no site mercedes.com.",
