@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 
 import devflix from "./img/devflix.png";
 import mercedes from "./img/mercedes-dev.png";
+import devlist from "./img/devlist.png"
 
 const App = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -125,7 +126,7 @@ const App = () => {
 
 
       {/* Conteúdo Principal */}
-      < main className="pt-20 bg-[#1e1939]" >
+      < main className="pt-20">
         {/* Hero Section */}
         <section id="home" className="min-h-screen flex items-center border-b border-[#15F5BA]/10">
           <motion.div
@@ -273,16 +274,23 @@ const App = () => {
                 {
                   title: "Mercedes-dev",
                   desc: "Pequeno projeto com o objetivo de ampliar meu portfólio. O projeto é baseado no site mercedes.com.",
-                  tech: ["React"],
+                  tech: ["React", "JavaScript"],
                   url: "https://mercedes-dev.vercel.app/",
                   image: mercedes
                 },
                 {
                   title: "DevFlix",
                   desc: "Este site é um exemplo de plataforma de streaming. Um dos meus projetos educacionais.",
-                  tech: ["React", "API"],
+                  tech: ["React", "JavaScript", "API"],
                   url: "https://devflix-chi-opal.vercel.app/",
                   image: devflix
+                },
+                {
+                  title: "DevList",
+                  desc: "Este site é um exemplo de lista de tarefas. Um dos meus projetos educacionais.",
+                  tech: ["React", "JavaScript", "API"],
+                  url: "https://devlist-xi.vercel.app/",
+                  image: devlist
                 }
               ].map((project, index) => (
                 <motion.div
