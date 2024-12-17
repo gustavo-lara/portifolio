@@ -1,8 +1,23 @@
-# React + Vite
+# 🌐 Meu Portfólio Online
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Bem-vindo ao meu site de portfólio! Este projeto foi desenvolvido para apresentar minha trajetória profissional, habilidades e projetos como desenvolvedor. Com um design minimalista e moderno, o site foi construído utilizando **React** e estilizado com **Tailwind CSS**, garantindo uma experiência responsiva e visualmente atraente.
 
-Currently, two official plugins are available:
+## 🖥️ Funcionalidades
+- **Sobre Mim:** Uma visão geral da minha história, objetivos e conquistas.
+- **Certificados:** Exibição de certificados adquiridos ao longo da minha jornada.
+- **Tecnologias e Ferramentas:** Tecnologias que utilizo, destacando minhas competências técnicas.
+- **Projetos:** Demonstração de projetos desenvolvidos com links para repositórios ou aplicações.
+- **Contato:** Formulário simples para facilitar conexões e parcerias.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias Utilizadas
+- **React**  
+- **Vite**  
+- **Tailwind CSS**  
+- **JavaScript**  
+
+## 💡 Aprendizado
+Este projeto foi uma oportunidade de aprofundar meus conhecimentos em **Tailwind CSS**, aprimorar práticas de organização de código e trabalhar com uma abordagem voltada para o design minimalista e responsivo.
+
+## 🔗 Acesse o site
+[gustavo-lara.vercel.app](https://gustavo-lara.vercel.app/)
+
