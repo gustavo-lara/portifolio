@@ -105,38 +105,7 @@ const App = () => {
             ))}
           </nav>
         </motion.div>
-
-        {/* Menu Mobile Expandido */}
-        {isMenuOpen && (
-          <motion.div
-            className="md:hidden absolute top-full left-0 right-0 bg-white font-vt323 border-b border-[#15F5BA]/10"
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <nav className="container mx-auto px-6 py-4 flex flex-col gap-4 font-vt323">
-              {['home', 'sobre', 'tecnologias', 'projetos', 'contato'].map((item) => (
-                <Link
-                  key={item}
-                  to={item}
-                  smooth={true}
-                  duration={500}
-                  offset={-100}
-                  onClick={() => setIsMenuOpen(false)}
-                  className={`capitalize text-left ${activeSection === item
-                    ? 'text-[#15F5BA]'
-                    : 'text-[#15F5BA]/60'
-                    }`}
-                >
-                  {item}
-                </Link>
-              ))}
-            </nav>
-          </motion.div>
-        )}
       </header>
-
-
 
       {/* Conteúdo Principal */}
       < main className="pt-20">
@@ -166,54 +135,73 @@ const App = () => {
 
 
         {/* Sobre */}
-        <section id="sobre" className="py-24 border-b border-[#15F5BA]/10">
+        <section id="sobre" className="py-16 md:py-24 border-b border-[#15F5BA]/10">
           <motion.div
-            className="container mx-auto px-6"
+            className="container mx-auto px-4 sm:px-6 lg:px-8"
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            viewport={{ once: true }} // Executa a animação apenas na primeira vez que entra na tela
+            viewport={{ once: true }}
           >
-            <div className="grid md:grid-cols-2 gap-12">
+            <div className="grid gap-8 md:grid-cols-2 md:gap-12">
               <div>
-                <h2 className="text-4xl font-bold text-[#15F5BA] mb-6 font-vt323">Sobre Mim</h2>
-                <p className="text-lg text-[#F0F3FF]/80 leading-relaxed">
-                  Olá, sou Gustavo Lara, um entusiasta da tecnologia e estudante dedicado, apaixonado por desenvolvimento e inovação. Meu objetivo é aprimorar minhas habilidades e expandir meu conhecimento diariamente para criar soluções que façam a diferença.
-                  Como desenvolvedor júnior, tenho experiência prática com JavaScript, React, SQL Server, .NET e C#. Estou focado em desenvolver aplicações eficientes, explorar novas tecnologias e contribuir para projetos que impactem positivamente o mundo da tecnologia.
-                  Estou sempre em busca de novos desafios, aprendizado contínuo e oportunidades de colaborar com profissionais inspiradores. Vamos juntos construir soluções inovadoras e transformar ideias em realidade! 🚀
+                <h2 className="text-3xl sm:text-4xl font-bold text-[#15F5BA] mb-6 font-vt323">
+                  Sobre Mim
+                </h2>
+                <p className="text-base sm:text-lg text-[#F0F3FF]/80 leading-relaxed">
+                  Olá, sou Gustavo Lara, um entusiasta da tecnologia e estudante
+                  dedicado, apaixonado por desenvolvimento e inovação. Meu objetivo é
+                  aprimorar minhas habilidades e expandir meu conhecimento diariamente
+                  para criar soluções que façam a diferença. Como desenvolvedor júnior,
+                  tenho experiência prática com JavaScript, React, SQL Server, .NET e
+                  C#. Estou focado em desenvolver aplicações eficientes, explorar novas
+                  tecnologias e contribuir para projetos que impactem positivamente o
+                  mundo da tecnologia. Estou sempre em busca de novos desafios,
+                  aprendizado contínuo e oportunidades de colaborar com profissionais
+                  inspiradores. Vamos juntos construir soluções inovadoras e
+                  transformar ideias em realidade! 🚀
                 </p>
               </div>
-              <div className="bg-[#3825a4]/10 rounded-lg p-8">
-                <h2 className="text-3xl font-bold text-[#15F5BA] mb-4 font-vt323">Certificados</h2>
+              <div className="bg-[#3825a4]/10 rounded-lg p-6 sm:p-8">
+                <h2 className="text-2xl sm:text-3xl font-bold text-[#15F5BA] mb-4 font-vt323">
+                  Certificados
+                </h2>
                 <div className="space-y-4">
                   {[
                     {
                       title: "Análise e Desenvolvimento de Sistemas",
                       org: "SENAI",
-                      year: "2024"
+                      year: "2024",
                     },
                     {
                       title: "Microsoft AI-900",
                       org: "MICROSOFT",
-                      year: "2023"
+                      year: "2023",
                     },
                     {
                       title: "Microsoft AZ-900",
                       org: "MICROSOFT",
-                      year: "2023"
+                      year: "2023",
                     },
                     {
                       title: "Modelagem de Dados",
                       org: "FUNDAÇÃO BRADESCO",
-                      year: "2023"
-                    }
+                      year: "2023",
+                    },
                   ].map((cert) => (
-                    <div key={cert.title} className="flex justify-between items-start">
+                    <div
+                      key={cert.title}
+                      className="flex flex-col md:flex-row justify-between items-start md:items-center"
+                    >
                       <div>
-                        <h3 className="text-4xl md:text-6xl lg:text-2xl text-[#15F5BA] font-vt323">{cert.title}</h3>
+                        <h3 className="text-xl sm:text-2xl md:text-xl lg:text-2xl text-[#15F5BA] font-vt323">
+                          {cert.title}
+                        </h3>
                         <p className="text-sm text-[#15F5BA]/60">{cert.org}</p>
                       </div>
-                      <span className="text-sm text-[#15F5BA]/60 font-vt323">{cert.year}</span>
+                      <span className="text-sm text-[#15F5BA]/60 font-vt323 mt-1 md:mt-0">
+                        {cert.year}
+                      </span>
                     </div>
                   ))}
                 </div>
@@ -221,6 +209,7 @@ const App = () => {
             </div>
           </motion.div>
         </section>
+
 
         {/* Tecnologias */}
         <section id="tecnologias" className="py-24 border-b border-[#15F5BA]/10">
