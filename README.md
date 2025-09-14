@@ -10,8 +10,7 @@ Bem-vindo ao meu site de portfólio! Este projeto foi desenvolvido para apresent
 - **Contato:** Formulário simples para facilitar conexões e parcerias.
 
 ## 🚀 Tecnologias Utilizadas
-- **React**  
-- **Vite**  
+- **React Vite**  
 - **Tailwind CSS**  
 - **JavaScript**  
 
