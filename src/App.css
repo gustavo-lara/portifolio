@@ -1,102 +1,36 @@
-/* Fundo animado com gradiente e partículas */
-.bg-animated {
-  position: relative;
-  background: linear-gradient(270deg, #1e1939, #043528, #1e1939);
-  background-size: 400% 400%;
-  animation: gradient 4s ease infinite;
-  overflow: hidden;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-/* Textura de partículas */
-.bg-animated::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-image: radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
-  background-size: 20px 20px;
-  opacity: 0.1;
-  pointer-events: none;
-  /* Para não interferir com cliques */
+body {
+  font-family: 'Inter', sans-serif;
+  background-color: #000000;
+  color: #ffffff;
+  overflow-x: hidden;
 }
 
-/* Camada de luz flutuante */
-.bg-animated::after {
-  content: "";
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(21, 245, 186, 0.4), transparent 70%);
-  animation: light-move 6s ease-in-out infinite;
-  pointer-events: none;
-  opacity: 0.3;
+/* Animação sutil para o botão */
+button {
+  background-color: transparent;
+  cursor: pointer;
+  letter-spacing: 0.1em;
 }
 
-/* Animação do movimento da luz */
-@keyframes light-move {
-  0% {
-    transform: translate(0, 0) scale(1);
-  }
-
-  50% {
-    transform: translate(50%, 50%) scale(1.2);
-  }
-
-  100% {
-    transform: translate(0, 0) scale(1);
-  }
+button:hover {
+  background-color: rgba(255, 255, 255, 0.05);
 }
 
-/* Sombras e contornos */
-.bg-animated h1,
-h2,
-h3 {
-  text-shadow: 0 0 10px rgba(21, 245, 186, 0.7), 0 0 20px rgba(21, 245, 186, 0.5);
+/* Remover outline padrão do botão */
+button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.1);
 }
 
-/* Customização da Barra de Rolagem */
-::-webkit-scrollbar {
-  width: 12px;
-  /* Largura da barra de rolagem */
-  height: 12px;
-  /* Altura da barra de rolagem horizontal */
-}
-
-/* Customização da parte da barra de rolagem que é arrastada (thumb) */
-::-webkit-scrollbar-thumb {
-  background-color: #15F5BA;
-  /* Cor de fundo da barra de rolagem */
-  border-radius: 10px;
-  /* Bordas arredondadas para o thumb */
-  border: 3px solid #1e1939;
-  /* Borda ao redor da barra de rolagem */
-  transition: background-color 0.3s ease;
-  /* Animação de transição */
-}
-
-/* Mudança de cor do thumb quando o usuário está interagindo */
-::-webkit-scrollbar-thumb:hover {
-  background-color: #2bcfa1;
-  /* Cor de fundo quando o thumb é hover */
-}
-
-/* Customização da trilha da barra de rolagem (track) */
-::-webkit-scrollbar-track {
-  background-color: #1e1939;
-  /* Cor de fundo da trilha da barra */
-}
-
-/* Barra de rolagem horizontal */
-::-webkit-scrollbar-horizontal {
-  height: 10px;
-  /* Altura da barra de rolagem horizontal */
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #2bcfa1;
-  /* Cor de fundo quando o thumb é hover */
+/* Efeito de transição suave para todos os elementos */
+* {
+  transition: all 0.3s ease;
 }
