@@ -1,6 +1,12 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { FaGithub, FaExternalLinkAlt, FaCode } from 'react-icons/fa';
+import DevFlix from "./../../img/devflix.png"
+import Mercedes from "./../../img/mercedes-dev.png"
+import DevList from "./../../img/devlist.png"
+import CoffeShop from "./../../img/CoffeeShop.png"
+import Calc from "./../../img/Calculadora.png"
+import Petshop from "./../../img/PetShop.png"
 
 const Projetos = () => {
   // Estado para filtro de projetos
@@ -13,7 +19,7 @@ const Projetos = () => {
       titulo: "DevFlix",
       descricao: "Plataforma de streaming desenvolvida com React e Node.js, com sistema de vizualização de catálogo de filmes.",
       tecnologias: ["React"],
-      imagem: "src/img/devflix.png",
+      imagem: DevFlix,
       github: "https://github.com/gustavo-lara/DEVFLIX",
       demo: "https://devflix-chi-opal.vercel.app/",
       categoria: "web"
@@ -23,7 +29,7 @@ const Projetos = () => {
       titulo: "MercedesDev",
       descricao: "Website para concessionária Mercedes-Benz.",
       tecnologias: ["React"],
-      imagem: "src/img/mercedes-dev.png",
+      imagem: Mercedes,
       github: "https://github.com/gustavo-lara/mercedes-dev",
       demo: "https://mercedes-dev.vercel.app/",
       categoria: "web"
@@ -33,7 +39,7 @@ const Projetos = () => {
       titulo: "DevList",
       descricao: "Website para organização de tarefas com armazenamento em navegador.",
       tecnologias: ["React"],
-      imagem: "src/img/devlist.png",
+      imagem: DevList,
       github: "https://github.com",
       demo: "https://devlist-xi.vercel.app/",
       categoria: "web"
@@ -43,7 +49,7 @@ const Projetos = () => {
       titulo: "CoffeeShop",
       descricao: "Sistema para gerenciar de forma eficiente todas as operações de uma cafeteria.",
       tecnologias: ["C#", ".NET", "ASP.NET", "MVC"],
-      imagem: "src/img/CoffeeShop.png",
+      imagem: CoffeShop,
       github: "https://github.com/gustavo-lara/CoffeeShop-MVC",
       demo: "https://www.linkedin.com/posts/gustavo-menegassi-lara-2950a32b3_gerenciamento-de-cafeteria-projeto-em-activity-7269687867650539520--H5a",
       categoria: "desktop"
@@ -53,7 +59,7 @@ const Projetos = () => {
       titulo: "CalculadoraApp",
       descricao: "App de calculadora comum.",
       tecnologias: ["C#", ".NET", "MAUI"],
-      imagem: "src/img/Calculadora.png",
+      imagem: Calc,
       github: "https://github.com/gustavo-lara/CalculadoraApp",
       demo: "https://github.com/gustavo-lara/CalculadoraApp",
       categoria: "mobile"
@@ -63,7 +69,7 @@ const Projetos = () => {
       titulo: "API PetShop",
       descricao: "API completa para gerenciamento de um Pet Shop.",
       tecnologias: ["C#", ".NET", "Swagger"],
-      imagem: "src/img/PetShop.png",
+      imagem: Petshop,
       github: "https://github.com/gustavo-lara/PetShopApi",
       demo: "https://github.com/gustavo-lara/PetShopApi",
       categoria: "api"
