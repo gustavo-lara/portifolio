@@ -1,12 +1,8 @@
-import { useState, useEffect, useRef } from 'react';
-import { ArrowUpRight, Github, Linkedin, Mail } from 'lucide-react';
-import { Link } from 'react-scroll';
+import { useRef } from 'react';
 import { motion } from 'framer-motion';
 import { FaHtml5, FaCss3Alt, FaJs, FaReact, FaBootstrap, FaGithub } from "react-icons/fa";
 import { SiTailwindcss, SiVite, SiFigma, SiCanva, SiVercel } from "react-icons/si";
 import { FaDatabase } from "react-icons/fa";
-import { FaInstagram, FaLinkedin, FaBriefcase } from 'react-icons/fa';
-import React from 'react';
 import { FaCode, FaDesktop, FaRobot } from "react-icons/fa";
 
 import HeroSection from './../../components/HeroSection/HeroSection.jsx';
