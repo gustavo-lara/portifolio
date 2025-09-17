@@ -79,7 +79,7 @@ const Projetos = () => {
   // Filtrar projetos baseado na categoria selecionada
   const projetosFiltrados = filter === 'todos'
     ? projetos
-    : projetos.filter(projeto => projeto.categoria === categoria);
+    : projetos.filter(projeto => projeto.categoria === filter); // Correção aqui
 
   // Categorias para filtro
   const categorias = [
@@ -185,7 +185,7 @@ const Projetos = () => {
           ))}
         </div>
 
-        {/* Links - Fixado na parte inferior */}
+        {/* Links - Fixados na parte inferior */}
         <div className="mt-auto pt-4 border-t border-gray-800">
           <div className="flex justify-between items-center">
             <a
