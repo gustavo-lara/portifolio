@@ -79,7 +79,7 @@ const Projetos = () => {
   // Filtrar projetos baseado na categoria selecionada
   const projetosFiltrados = filter === 'todos'
     ? projetos
-    : projetos.filter(projeto => projeto.categoria === filter);
+    : projetos.filter(projeto => projeto.categoria === categoria);
 
   // Categorias para filtro
   const categorias = [
@@ -135,7 +135,6 @@ const Projetos = () => {
         transition={{ duration: 3.5, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
       />
 
-
       {/* Círculos decorativos */}
       <motion.div
         className="absolute top-1/4 right-1/4 w-64 h-64 rounded-full border border-gray-800 opacity-20"
@@ -153,12 +152,12 @@ const Projetos = () => {
   // Componente para cada card de projeto
   const ProjetoCard = ({ projeto }) => (
     <motion.div
-      className="bg-gray-900 bg-opacity-50 border border-gray-800 rounded-xl overflow-hidden backdrop-blur-sm hover:border-gray-700 transition-all duration-300"
+      className="bg-gray-900 bg-opacity-50 border border-gray-800 rounded-xl overflow-hidden backdrop-blur-sm hover:border-gray-700 transition-all duration-300 flex flex-col h-full"
       variants={itemVariants}
       whileHover={{ y: -10 }}
     >
       {/* Imagem do projeto */}
-      <div className="relative h-48 overflow-hidden">
+      <div className="relative h-48 overflow-hidden flex-shrink-0">
         <img
           src={projeto.imagem}
           alt={projeto.titulo}
@@ -173,7 +172,7 @@ const Projetos = () => {
       </div>
 
       {/* Conteúdo do card */}
-      <div className="p-6">
+      <div className="p-6 flex-grow flex flex-col">
         <h3 className="text-xl font-light text-white mb-2">{projeto.titulo}</h3>
         <p className="text-gray-400 mb-4 text-sm leading-relaxed">{projeto.descricao}</p>
 
@@ -186,27 +185,29 @@ const Projetos = () => {
           ))}
         </div>
 
-        {/* Links */}
-        <div className="flex justify-between items-center">
-          <a
-            href={projeto.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center text-gray-400 hover:text-white transition-colors duration-300"
-          >
-            <FaGithub className="mr-2" />
-            <span className="text-sm">Código</span>
-          </a>
+        {/* Links - Fixado na parte inferior */}
+        <div className="mt-auto pt-4 border-t border-gray-800">
+          <div className="flex justify-between items-center">
+            <a
+              href={projeto.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              <FaGithub className="mr-2" />
+              <span className="text-sm">Código</span>
+            </a>
 
-          <a
-            href={projeto.demo}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center text-gray-400 hover:text-white transition-colors duration-300"
-          >
-            <span className="text-sm mr-2">Demo</span>
-            <FaExternalLinkAlt />
-          </a>
+            <a
+              href={projeto.demo}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center text-gray-400 hover:text-white transition-colors duration-300"
+            >
+              <span className="text-sm mr-2">Demo</span>
+              <FaExternalLinkAlt />
+            </a>
+          </div>
         </div>
       </div>
     </motion.div>

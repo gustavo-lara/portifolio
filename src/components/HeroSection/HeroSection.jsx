@@ -163,7 +163,7 @@ const HeroSection = () => {
                         <a href="https://github.com/gustavo-lara" className="text-gray-400 hover:text-white transition-colors duration-300">
                             <Github size={24} />
                         </a>
-                        <a href="www.linkedin.com/in/gustavo-lara-26102006www" className="text-gray-400 hover:text-white transition-colors duration-300">
+                        <a href="https://www.linkedin.com/in/gustavo-lara-26102006www/" className="text-gray-400 hover:text-white transition-colors duration-300">
                             <Linkedin size={24} />
                         </a>
                         <a href="https://www.threads.com/@_gustavolara_" className="text-gray-400 hover:text-white transition-colors duration-300">
